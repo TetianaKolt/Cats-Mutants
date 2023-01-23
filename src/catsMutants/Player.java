@@ -1,4 +1,5 @@
 package catsMutants;
+import java.util.Random;
 
 public class Player extends Humanoid {
 
@@ -10,5 +11,12 @@ public class Player extends Humanoid {
     @Override
     public void prepareRound() {
 
+        DamageType[] values = DamageType.values();
+        Random randomChoice = new Random();
+
+//        randomChoice.nextInt(values.length);
+
+        int preparedAttack = randomChoice.nextInt(values.length);
+        int preparedBlock = randomChoice.nextInt(values.length);
     }
 }
