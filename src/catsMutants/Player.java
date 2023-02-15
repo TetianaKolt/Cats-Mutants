@@ -1,6 +1,6 @@
 package catsMutants;
 
-import java.util.Random;
+import java.util.Scanner;
 
 public class Player extends Humanoid {
 
@@ -11,11 +11,17 @@ public class Player extends Humanoid {
 
     @Override
     public void prepareRound() {
-//        randomChoice.nextInt(values.length);
-//        preparedAttack = randomChoice.nextInt(values.length);
-//        preparedBlock = randomChoice.nextInt(values.length);
-        preparedAttack = DamageType.values()[new Random().nextInt(DamageType.values().length)];
-        preparedBlock = DamageType.values()[new Random().nextInt(DamageType.values().length)];
+
+        //// додати новий метод сюди
+//        preparedAttack = DamageType.HEAD;
+//        preparedBlock = DamageType.TORSO;
+
+        UserInput.takeUserInputAttack();
+        UserInput.takeUserInputBlock();
+
+
+//        preparedAttack = DamageType.values()[enteredAttack-1];
+//        preparedBlock = DamageType.values()[enteredBlock-1];
 
     }
 }

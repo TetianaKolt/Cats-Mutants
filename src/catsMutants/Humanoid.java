@@ -6,7 +6,7 @@ import java.util.Map;
 public class Humanoid {
     private int hp;
     private final int baseDamage;
-    private String name;
+    private final String name;
 
     DamageType preparedAttack = DamageType.HEAD;
     DamageType preparedBlock = DamageType.HEAD;
@@ -34,12 +34,7 @@ public class Humanoid {
         return hp <= 0;
     }
 
-    public void prepareRound() {
-        /// Overrride цей метод в нащадках з рандомним вибором
-//
-//        preparedAttack = DamageType.HEAD;
-//        preparedBlock = DamageType.HEAD;
-    }
+    public void prepareRound() {}
 
     public void attack(Humanoid otherHumanoid) {
 
@@ -57,6 +52,7 @@ public class Humanoid {
         if(atackType == preparedBlock){
             double decreaseDamage = damageTypeBlock.get(preparedBlock);
             damage-=damage*(decreaseDamage/100);
+            System.out.println(name + " blocks attack for " + decreaseDamage);
         }
         hp -= damage;
         System.out.println(name + " receives " + damage + " damage ");
