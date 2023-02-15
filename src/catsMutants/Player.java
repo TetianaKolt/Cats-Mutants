@@ -1,27 +1,34 @@
 package catsMutants;
 
-import java.util.Scanner;
+import static catsMutants.UserInput.takeUserAnswer;
 
 public class Player extends Humanoid {
 
-    public Player(String name, int hp, int baseDamage) {
 
-        super(name, hp, baseDamage);
+    public Player(String name, int hp, int baseDamage) {
+        super(UserInput.enterName(), hp, baseDamage);
     }
 
     @Override
     public void prepareRound() {
-
-        //// додати новий метод сюди
-//        preparedAttack = DamageType.HEAD;
-//        preparedBlock = DamageType.TORSO;
-
+        wannaBooster();
         UserInput.takeUserInputAttack();
         UserInput.takeUserInputBlock();
+    }
 
+    private void wannaBooster() {
+        if (super.getHp() < (super.getHp() * 0.6)) {
+            System.out.println("Wanna boost your HP? Press 'Y' if yes, press 'N', if not");
+            String answer = takeUserAnswer();
+            if (answer.equals("Yes")) {
+                takeHealthBooster();
+            } else {
+                System.out.println("Your choice...");
+            }
+        }
+    }
 
-//        preparedAttack = DamageType.values()[enteredAttack-1];
-//        preparedBlock = DamageType.values()[enteredBlock-1];
-
+    public int takeHealthBooster() {
+        return super.getHp() + 20;
     }
 }

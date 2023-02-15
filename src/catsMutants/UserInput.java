@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class UserInput {
 
+    public static String enterName(){
+        return new Scanner(System.in).nextLine();
+    }
+
     public static void takeUserInputAttack() {
 
         System.out.println("Pls enter the direction for attack:\n1: HEAD\n2: TORSO\n3: LEGS");
@@ -52,5 +56,16 @@ public class UserInput {
             new Scanner(System.in).nextInt();
         }
     }
+
+    public static String takeUserAnswer(){
+        String answer = new Scanner(System.in).nextLine();
+        switch (answer){
+            case "y": case "Yes":
+                return "Yes";
+            default:
+                return "No";
+        }
+    }
+
 }
 
