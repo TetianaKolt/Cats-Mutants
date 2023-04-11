@@ -6,12 +6,13 @@ import java.util.Scanner;
 public class UserInput {
 
     public static String enterName(){
+        System.out.println("Pls enter your name: ");
         return new Scanner(System.in).nextLine();
     }
 
     public static void takeUserInputAttack() {
 
-        System.out.println("Pls enter the direction for attack:\n1: HEAD\n2: TORSO\n3: LEGS");
+        System.out.println("Pls enter the number of direction for attack:\n1: HEAD\n2: TORSO\n3: LEGS");
         int enteredAttack = 0;
         try {
             enteredAttack = new Scanner(System.in).nextInt();
@@ -22,19 +23,19 @@ public class UserInput {
                    break;
                 default:
                     System.out.println("Wrong number of direction to attack. "
-                            + "Pls enter the direction for attack:\n1: HEAD\n2: TORSO\n3: LEGS");
+                            + "Pls enter the number of direction for attack:\n1: HEAD\n2: TORSO\n3: LEGS");
                     new Scanner(System.in).nextInt();
             }
         } catch (InputMismatchException e) {
             System.out.println("Wrong direction to attack. "
-                    + "Pls enter the direction for attack:\n1: HEAD\n2: TORSO\n3: LEGS."
+                    + "Pls enter the number of direction for attack:\n1: HEAD\n2: TORSO\n3: LEGS."
                     +"\nAnd don't screw up this time");
             new Scanner(System.in).nextInt();
         }
     }
 
     public static void takeUserInputBlock() {
-        System.out.println("Pls enter the direction to block:\n1: HEAD\n2: TORSO\n3: LEGS");
+        System.out.println("Pls enter the number of direction to block:\n1: HEAD\n2: TORSO\n3: LEGS");
         int enteredBlock = 0;
         try {
             enteredBlock = new Scanner(System.in).nextInt();
@@ -51,7 +52,7 @@ public class UserInput {
 
         } catch (InputMismatchException e) {
             System.out.println("Wrong number of direction to block."
-                    +"Pls enter the direction to block:\n1: HEAD\n2: TORSO\n3: LEGS"
+                    +"Pls enter the number of direction to block:\n1: HEAD\n2: TORSO\n3: LEGS"
                     + "\nAnd don't screw up this time");
             new Scanner(System.in).nextInt();
         }
