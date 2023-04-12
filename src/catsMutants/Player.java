@@ -4,9 +4,16 @@ import static catsMutants.UserInput.takeUserAnswer;
 
 public class Player extends Humanoid {
 
+  private String name;
+  private int hp;
+  private int baseDamage;
+
 
   public Player(String name, int hp, int baseDamage) {
     super(UserInput.enterName(), hp, baseDamage);
+    this.name = name;
+    this.hp = hp;
+    this.baseDamage = baseDamage;
   }
 
   @Override
@@ -17,7 +24,7 @@ public class Player extends Humanoid {
   }
 
   public void wannaBooster() {
-    if (super.getHp() < (super.getHp() * 0.6)) {
+    if (this.hp < (this.hp * 0.6)) {
       System.out.println("Wanna boost your HP? Press 'Y' if yes, press 'N', if not");
       String answer = takeUserAnswer();
       if (answer.equals("Yes")) {
@@ -28,7 +35,7 @@ public class Player extends Humanoid {
     }
   }
 
-  public int takeHealthBooster() {
-    return super.getHp() + 20;
+  public void takeHealthBooster() {
+    this.hp += 20;
   }
 }
